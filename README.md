@@ -17,7 +17,9 @@ To address the aforementioned challenges, this paper proposes a novel adaptive d
 
   **For Limitation-2**: To address the limitations of relying solely on frequency-domain differences for identifying degradation types—particularly under mixed degradations—and to mitigate the issue of residual degradation features introduced by pre-trained models when encoding degraded images, this paper proposes a contrastive learning-based strategy for degradation type recognition, as depicted in Fig. 4. The method utilizes only the text encoder from a pre-trained model, coupled with a lightweight image encoder, to achieve automatic degradation identification through contrastive learning. This framework enables the extraction of purer degradation-related representations directly from degraded images, significantly improving adaptability to complex and mixed degradation scenarios.
 
-![](./images/Prompt_generation.png)
+<p align="center">
+  <img src="./images/Prompt_generation.png" alt="">
+</p>
 
   **For Limitation-3**: To mitigate the interference among multiple degradations in existing prompt and image feature fusion methods, we propose a novel degradation-aware adaptive channel activation and selection strategy, as illustrated in Fig. 2. This strategy performs adaptive channel filtering in a high-dimensional feature space: only the feature channels most sensitive to the current degradation type are retained for subsequent decoding and reconstruction, while the unselected channels are directly discarded. Unlike conventional channel attention or gating mechanisms, our approach does not apply soft weighting or selection to all channels; instead, it employs a hard selection mechanism to significantly reduce feature-level interference across different degradations. As a result, the proposed method effectively enhances the restoration performance of the model in complex degradation scenarios.
 
@@ -26,6 +28,14 @@ To address the aforementioned challenges, this paper proposes a novel adaptive d
 </p>
 
 To address the issue of inter-channel interference among features from multiple degradations, we conducted a systematic manual analysis of task-specific channels in an all-in-one restoration scenario, as summarized in Table I. In this experiment, textual prompts were manually designed to identify dedicated channels for each degradation type. The results indicate that each task achieves peak performance when assigned its most relevant channels, whereas a misallocation of channels from other tasks leads to significant performance degradation. For instance, channels specialized for denoising perform optimally on denoising tasks but exhibit markedly inferior results when applied to deraining or dehazing. It is worth noting that even when all channels are used for denoising, the performance (31.18 dB / 0.885 SSIM) remains lower than that achieved using task-specific channels. This observation suggests that feature channels relied upon by different tasks are not entirely independent; instead, they exhibit certain correlations and interference. Reusing channels across tasks can considerably hinder further improvements in model performance. Therefore, adaptively assigning suitable dedicated channels for each degradation type in all-in-one restoration can effectively suppress inter-task interference and significantly enhance overall restoration quality.
+
+<p align="center">
+  <img src="images/Inter-Channel Interference.png" alt="">
+</p>
+
+
+
+
 
 
 
