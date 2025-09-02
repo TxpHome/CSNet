@@ -36,6 +36,11 @@ To address the issue of inter-channel interference among features from multiple 
 
 Finally, we propose a novel all-in-one image restoration framework, termed Degradation-Aware Feature Channel Activation and Selection Network (CSNet), as depicted in Fig. 3. The framework extracts explicit degradation prompts from the input degraded image to guide the restoration process. A Channel Selection Block (CSB) is inserted between the encoder and decoder to adaptively select the most task-relevant feature channels for decoding. Furthermore, to strengthen the decoding capability under diverse degradation patterns, a Feature Enhancement Module (FEM) is introduced in the decoder, thereby significantly improving restoration performance.
 
+<p align="center">
+  <img src="images/cs2.png" alt="">
+</p>
+
+
 ## Quantitative Comparison with SOTA
 
 ## Additional Qualitative Comparisons with SOTA Methods
