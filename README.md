@@ -62,6 +62,24 @@ Finally, we propose a novel all-in-one image restoration framework, termed Degra
 
 
 
+<details>
+<summary><b>Additional Qualitative Comparisons with SOTA Methods (click to expand)</b></summary>
+<br>
+
+<p align="center">
+  <img src="images/Dehaze3D_supp.png" alt="">
+</p>
+
+<p align="center">
+  <img src="images/Denoise3D_supp.png" alt="">
+</p>
+
+<p align="center">
+  <img src="images/Derain3D_supp.png" alt="">
+</p>
+
+</details>
+
 
 
 
