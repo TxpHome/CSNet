@@ -24,6 +24,8 @@ To address the aforementioned challenges, this paper proposes a novel adaptive d
 
 ![](./images/NEt-work.png)
 
-
+<p align="center">
+  <img src="./images/NEt-work.png" alt="">
+</p>
 
 
