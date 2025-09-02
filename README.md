@@ -46,14 +46,20 @@ Finally, we propose a novel all-in-one image restoration framework, termed Degra
 <br>
 
 <p align="center">
-  <img src="images/cs2.png" alt="">
+  <img src="images/3D.png" alt="">
+</p>
+
+<p align="center">
+  <img src="images/5D.png" alt="">
+</p>
+
+<p align="center">
+  <img src="images/CDD-11.png" alt="">
 </p>
 
 </details>
 
-## Quantitative Comparison with SOTA
 
-## Additional Qualitative Comparisons with SOTA Methods
 
 
 
