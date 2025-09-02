@@ -22,8 +22,8 @@ To address the aforementioned challenges, this paper proposes a novel adaptive d
   **For Limitation-3**: To mitigate the interference among multiple degradations in existing prompt and image feature fusion methods, we propose a novel degradation-aware adaptive channel activation and selection strategy, as illustrated in Fig. 2. This strategy performs adaptive channel filtering in a high-dimensional feature space: only the feature channels most sensitive to the current degradation type are retained for subsequent decoding and reconstruction, while the unselected channels are directly discarded. Unlike conventional channel attention or gating mechanisms, our approach does not apply soft weighting or selection to all channels; instead, it employs a hard selection mechanism to significantly reduce feature-level interference across different degradations. As a result, the proposed method effectively enhances the restoration performance of the model in complex degradation scenarios.
 
 
-<center>
-  <img src="./images/NEt-work.png" alt=" " width="400">
-</center>
+![](./images/NEt-work.png)
+
+
 
 
