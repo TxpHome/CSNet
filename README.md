@@ -14,32 +14,24 @@ The goal of multi-degradation (also referred to as multi-task or all-in-one) ima
 
 To address the aforementioned challenges, we propose a novel Degradation-Aware Channel Activation framework, termed DACA-IR, for multi-degradation image restoration. The framework incorporates an explicit degradation-aware prompting mechanism that extracts degradation-related cues from degraded images and provides adaptive guidance for restoration. Furthermore, we introduce a degradation-aware channel activation strategy that dynamically activates informative channels while suppressing degradation-irrelevant responses into a silent state. By explicitly regulating channel-wise activation patterns, the proposed framework effectively alleviates feature entanglement across different degradations and promotes more discriminative feature representations, leading to improved restoration performance.
 
-  **For Limitation-1**: To overcome the limitations of implicit prompts in accurately identifying degradation types, we propose an explicit degradation prompt strategy. Inspired by InstructIR, which demonstrates the potential of textual prompts in image restoration tasks, our method incorporates semantically explicit textual guidance, as illustrated in the lower part of Fig. 6. By introducing such explicit prompts, our framework achieves more precise recognition of degradation types and effectively alleviates the representational limitations of implicit or dynamically learned prompts in complex degradation scenarios.
+  **For Limitation-1**: We explicitly investigate channel-wise feature interactions under different degradations and develop a degradation-aware channel activation framework that performs adaptive feature regulation directly in the channel space, rather than at the prompt, task, or expert level.
 
-  **For Limitation-2**: To address the limitations of relying solely on frequency-domain differences for identifying degradation types—particularly under mixed degradations—and to mitigate the issue of residual degradation features introduced by pre-trained models when encoding degraded images, this paper proposes a contrastive learning-based strategy for degradation type recognition, as depicted in Fig. 6. The method utilizes only the text encoder from a pre-trained model, coupled with a lightweight image encoder, to achieve automatic degradation identification through contrastive learning. This framework enables the extraction of purer degradation-related representations directly from degraded images, significantly improving adaptability to complex and mixed degradation scenarios.
+  **For Limitation-2**: Unlike existing prompt-guided fusion strategies based on channel attention or spatial attention, we introduce an adaptive channel activation mechanism that selectively activates informative channels while driving degradation-irrelevant channels into a silent state, thereby reducing feature entanglement across different degradations.
 
-<p align="center">
+
+
+<!-- <p align="center">
   <img src="./images/Prompt_generation.png" alt="">
-</p>
+</p> -->
 
-  **For Limitation-3**: To mitigate the interference among multiple degradations in existing prompt and image feature fusion methods, we propose a novel degradation-aware adaptive channel activation and selection strategy, as illustrated in Fig. 1. This strategy performs adaptive channel filtering in a high-dimensional feature space: only the feature channels most sensitive to the current degradation type are retained for subsequent decoding and reconstruction, while the unselected channels are directly discarded. Unlike conventional channel attention or gating mechanisms, our approach does not apply soft weighting or selection to all channels; instead, it employs a hard selection mechanism to significantly reduce feature-level interference across different degradations. As a result, the proposed method effectively enhances the restoration performance of the model in complex degradation scenarios.
+  **For Limitation-3**: we further investigate the underlying role of degradation-aware guidance in feature learning. Experimental analyses reveal that channel activation exhibits distinct behaviors across network depths: in shallow layers, degradation cues primarily enhance texture and detail representations, whereas in deeper layers they strengthen degradation-discriminative representations, providing a clearer understanding of how degradation prompts contribute to image restoration.
 
-<p align="center">
+
+<!-- <p align="center">
   <img src="./images/NEt-work.png" alt="">
-</p>
-
-To address the issue of inter-channel interference among features from multiple degradations, we conducted a systematic manual analysis of task-specific channels in an multi-degradation restoration scenario, as summarized in Table I. In this experiment, textual prompts were manually designed to identify dedicated channels for each degradation type. The results indicate that each task achieves peak performance when assigned its most relevant channels, whereas a misallocation of channels from other tasks leads to significant performance degradation. For instance, channels specialized for denoising perform optimally on denoising tasks but exhibit markedly inferior results when applied to deraining or dehazing. It is worth noting that even when all channels are used for denoising, the performance (31.28 dB / 0.887 SSIM) remains lower than that achieved using task-specific channels. This observation suggests that feature channels relied upon by different tasks are not entirely independent; instead, they exhibit certain correlations and interference. Reusing channels across tasks can considerably hinder further improvements in model performance. Therefore, adaptively assigning suitable dedicated channels for each degradation type in multi-degradation restoration can effectively suppress inter-task interference and significantly enhance overall restoration quality.
-
-<p align="center">
-  <img src="images/Inter-Channel Interference.png" alt="">
-</p>
+</p> -->
 
 
-Finally, we propose a novel multi-degradation image restoration framework, termed Degradation-Aware Feature Channel Activation and Selection Network (CSNet), as depicted in Fig. 3. The framework extracts explicit degradation prompts from the input degraded image to guide the restoration process. A Channel Selection Block (CSB) is inserted between the encoder and decoder to adaptively select the most task-relevant feature channels for decoding. Furthermore, to strengthen the decoding capability under diverse degradation patterns, a Feature Enhancement Module (FEM) is introduced in the decoder, thereby significantly improving restoration performance.
-
-<p align="center">
-  <img src="images/framework.png" alt="">
-</p>
 
 
 
