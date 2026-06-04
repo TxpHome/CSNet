@@ -1,4 +1,4 @@
-# Adaptive Degradation-Aware Channel Selection for Multi-Degradation Image Restoration
+# Degradation-Aware Channel Activation for Multi-Degradation Image Restoration
 
 
 ## Abstract
